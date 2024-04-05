@@ -4,7 +4,7 @@
  */
 package classes;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,27 +13,36 @@ import java.util.List;
  * @author 081210001
  */
 public class Reserva {
-    public LocalDate inicio;
-    public LocalDate fim;
+    public LocalDateTime inicio;
+    public LocalDateTime fim;
     public SalaReuniao salareuniao;
     public String reservadoPor;
     public String quantasPessoas;
 
     public static List<Reserva> listaReservas = new ArrayList<>();
     
-    public LocalDate getInicio() {
+public static void removerReserva(Reserva reserva) {
+    listaReservas.removeIf(r ->
+            r.getSalareuniao().equals(reserva.getSalareuniao()) &&
+            r.getInicio().equals(reserva.getInicio()) &&
+            r.getReservadoPor().equals(reserva.getReservadoPor())
+    );
+}
+
+    
+    public LocalDateTime getInicio() {
         return inicio;
     }
 
-    public void setInicio(LocalDate inicio) {
+    public void setInicio(LocalDateTime inicio) {
         this.inicio = inicio;
     }
 
-    public LocalDate getFim() {
+    public LocalDateTime getFim() {
         return fim;
     }
 
-    public void setFim(LocalDate fim) {
+    public void setFim(LocalDateTime fim) {
         this.fim = fim;
     }
 

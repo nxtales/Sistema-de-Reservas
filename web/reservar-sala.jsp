@@ -65,20 +65,19 @@
 <body>
     <div class="container">
         <h2>Cadastro de Reserva</h2>
-        <form action="SalvarReservaServlet" method="post">
-            <label for="inicio">Data de Início:</label>
-            <input type="date" id="inicio" name="inicio" required><br>
-
-            <label for="fim">Data de Fim:</label>
-            <input type="date" id="fim" name="fim" required><br>
-
+        <form action="CadastrarReservaServlet" method="post">
+            <label for="inicio">Data e Hora de Início:</label>
+            <input type="datetime-local" id="inicio" name="inicio" required><br>
+            <br>
+            <label for="fim">Data e Hora de Fim:</label>
+            <input type="datetime-local" id="fim" name="fim" required><br>
+            <br>
     <label for="salareuniao">Sala de Reunião:</label>
     <select id="salareuniao" name="salareuniao" required>
-        <c:forEach var="sala" items="${salas}" >
-            <c:if test="${sala.disponibilidade == 1}">
-                <option value="${sala.nome}">${sala.nome} , capacidade: ${sala.capacidade}</option>
-            </c:if>
+        <c:forEach var="sala" items="${salas}">
+            <option value="${sala.nome}">${sala.nome}, capacidade: ${sala.capacidade}</option>
         </c:forEach>
+        
 </select><br><br>
 
 <label for="reservadoPor">Reservado Por:</label>
@@ -95,3 +94,4 @@
 
 </body>
 </html>
+

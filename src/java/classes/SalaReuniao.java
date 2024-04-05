@@ -17,6 +17,15 @@ public class SalaReuniao {
     public int capacidade;
     
     public static List<SalaReuniao> listaSalasDeReuniao = new ArrayList<>();
+    
+    public static SalaReuniao buscarSalaPorNome(String salanome) {
+    for (SalaReuniao sala : listaSalasDeReuniao) {
+        if (sala.getNome().equals(salanome)) {
+            return sala;
+        }
+    }
+    return null; // Retorna null se a sala não for encontrada
+}
 
     public SalaReuniao(String nome, int capacidade) {
         this.nome = nome;
